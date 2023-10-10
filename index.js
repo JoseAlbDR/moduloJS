@@ -1,3 +1,5 @@
 import { tweetListController } from './tweet-list/tweetListController.js';
 
-tweetListController();
+const tweetList = document.getElementById('tweets');
+
+tweetListController(tweetList);
