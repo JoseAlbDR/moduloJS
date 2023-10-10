@@ -8,9 +8,17 @@
     <link rel="stylesheet" href="./styles/tweets.css" />
   </head>
   <body>
-    <h1 class="title">Twittlon</h1>
+    <div class="page-container">
+      <h1 class="title">Twittlon</h1>
 
-    <section id="tweets" class="tweets"></section>
+      <div class="buttons">
+        <button id="loadTweets" class="btn">Load Tweets</button>
+        <button id="removeTweets" class="btn">Remove Tweets</button>
+        <button id="hideTweets" class="btn">Toggle Tweets</button>
+      </div>
+
+      <section id="tweets" class="tweets"></section>
+    </div>
 
     <script type="module" src="./index.js"></script>
   </body>

@@ -1,4 +1,4 @@
-export const tweets = [
+export const tweetsFake = [
   {
     handler: '@user1',
     date: new Date().toISOString(),
@@ -24,3 +24,9 @@ export const tweets = [
     likes: 10,
   },
 ];
+
+export const getTweets = async () => {
+  const response = await fetch('https://fake-tweets-api-kc.vercel.app/posts');
+  const tweets = await response.json();
+  return tweets;
+};
