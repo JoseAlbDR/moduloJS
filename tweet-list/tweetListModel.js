@@ -25,8 +25,22 @@ export const tweetsFake = [
   },
 ];
 
+const transformTweets = (tweets) => {
+  return tweets.map((tweet) => ({
+    handler: tweet.author,
+    date: new Date().toISOString(),
+    message: tweet.message,
+    likes: tweet.likes.length,
+  }));
+};
+
 export const getTweets = async () => {
-  const response = await fetch('https://fake-tweets-api-kc.vercel.app/posts');
-  const tweets = await response.json();
-  return tweets;
+  try {
+    const response = await fetch('https://fake-tweets-api-kc.vercel.app/posts');
+    const tweets = await response.json();
+    const parsedTweets = transformTweets(tweets);
+    return parsedTweets;
+  } catch (error) {
+    console.log(error);
+  }
 };
