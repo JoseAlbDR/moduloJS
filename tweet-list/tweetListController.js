@@ -2,17 +2,38 @@ import { getTweets } from './tweetListModel.js';
 import { buildTweet, emptyTweets } from './tweetListView.js';
 
 export const tweetListController = async (tweetList) => {
-  const tweets = await getTweets();
-
-  if (!tweets) {
-    // window.alert('No hay tweets disponibles.');
-    tweetList.innerHTML = emptyTweets();
+  let tweets = [];
+  try {
+    tweets = await getTweets();
+  } catch (error) {
+    const event = createCustomEvent('error', 'Error cargando tweets');
+    tweetList.dispatchEvent(event);
   }
 
+  if (!tweets || tweets.length === 0) {
+    tweetList.innerHTML = emptyTweets();
+  } else {
+    renderTweets(tweets, tweetList);
+    const event = createCustomEvent('success', 'Tweets cargados con éxito');
+    tweetList.dispatchEvent(event);
+  }
+};
+
+const renderTweets = (tweets, tweetList) => {
   tweets.forEach((tweet) => {
     const tweetContainer = document.createElement('div');
     tweetContainer.classList.add('tweet');
     tweetContainer.innerHTML = buildTweet(tweet);
     tweetList.appendChild(tweetContainer);
   });
+};
+
+const createCustomEvent = (type, message) => {
+  const event = new CustomEvent('tweetsLoaded', {
+    detail: {
+      type: type,
+      message: message,
+    },
+  });
+  return event;
 };

@@ -31,16 +31,21 @@ const transformTweets = (tweets) => {
     date: new Date().toISOString(),
     message: tweet.message,
     likes: tweet.likes.length,
+    image: tweet.image,
   }));
 };
 
 export const getTweets = async () => {
   try {
-    const response = await fetch('https://fake-tweets-api-kc.vercel.app/posts');
+    const response = await fetch('http://localhost:8000/api/tweets');
     const tweets = await response.json();
     const parsedTweets = transformTweets(tweets);
     return parsedTweets;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
+
+// paginas estáticas
+// createdBy
+// como saber quien es el usuario

@@ -1,5 +1,6 @@
 export const buildTweet = (tweet) => {
   return `
+    <img src="${tweet.image}" alt="tweet image"  />
     <span>${tweet.handler}</span>
     <span>${tweet.date}</span>
     <p>${tweet.message}</p>
