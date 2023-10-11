@@ -6,3 +6,9 @@ export const buildTweet = (tweet) => {
     <p>${tweet.likes} likes</p>
   `;
 };
+
+export const emptyTweets = () => {
+  return `
+    <h1>NO HAY TWEETS PESAO DEJA DE PULSAR EL PUTO BOTONCITO</h1>
+  `;
+};
