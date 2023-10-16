@@ -4,15 +4,22 @@ import { notificationController } from './notifications/notificationsController.
 // const loadButton = document.getElementById('loadTweets');
 // const removeButton = document.getElementById('removeTweets');
 // const hideButton = document.getElementById('hideTweets');
-const tweetList = document.getElementById('tweets');
 const notifications = document.getElementById('notifications');
 const showNotification = notificationController(notifications);
 
-tweetListController(tweetList);
+document.addEventListener('DOMContentLoaded', () => {
+  const tweetList = document.getElementById('tweets');
+  tweetListController(tweetList);
 
-tweetList.addEventListener('tweetsLoaded', (event) => {
-  showNotification(event.detail.message, event.detail.type);
+  tweetList.addEventListener('tweetsLoaded', (event) => {
+    showNotification(event.detail.message, event.detail.type);
+  });
 });
+
+window.addEventListener('offline', () => {
+  showNotification('No hay conexión', 'error');
+});
+
 // const removeTweets = () => {
 //   tweetList.innerHTML = '';
 // };

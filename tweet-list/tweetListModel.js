@@ -45,7 +45,3 @@ export const getTweets = async () => {
     throw error;
   }
 };
-
-// paginas estáticas
-// createdBy
-// como saber quien es el usuario

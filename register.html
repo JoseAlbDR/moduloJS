@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/form.css" />
+    <link rel="stylesheet" href="./styles/notifications.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <section id="notifications"></section>
+    <div class="content">
+      <form method="post" class="form" id="register-form">
+        <h4 class="form-title">Register</h4>
+        <img
+          src="./assets/images/undraw_sign_up_n6im.svg"
+          alt="register image"
+          class="img form-logo"
+        />
+        <div class="form-row">
+          <label class="form-label" for="name"> User Name </label>
+          <input
+            class="form-input"
+            type="text"
+            id="name"
+            name="username"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="name"> Password </label>
+          <input
+            class="form-input"
+            type="password"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="name"> Repeat Password </label>
+          <input
+            class="form-input"
+            type="password"
+            id="repeatPassword"
+            name="repeatPassword"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-block form-btn" id="register-btn">
+          Submit
+        </button>
+        <p class="already-member">
+          Already a member?
+
+          <a href="/login.html" class="member-btn"> Login </a>
+        </p>
+      </form>
+    </div>
+    <script type="module" src="./register.js"></script>
+  </body>
+</html>
