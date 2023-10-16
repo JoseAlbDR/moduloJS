@@ -29,22 +29,26 @@
           />
         </div>
         <div class="form-row">
-          <label class="form-label" for="name"> Password </label>
+          <label class="form-label" for="password"> Password </label>
           <input
             class="form-input"
             type="password"
             id="password"
             name="password"
+            minlength="6"
             required
           />
         </div>
         <div class="form-row">
-          <label class="form-label" for="name"> Repeat Password </label>
+          <label class="form-label" for="repeatPassword">
+            Repeat Password
+          </label>
           <input
             class="form-input"
             type="password"
             id="repeatPassword"
             name="repeatPassword"
+            minlength="6"
             required
           />
         </div>
@@ -53,7 +57,6 @@
         </button>
         <p class="already-member">
           Already a member?
-
           <a href="/login.html" class="member-btn"> Login </a>
         </p>
       </form>
