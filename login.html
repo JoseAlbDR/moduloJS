@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/form.css" />
+    <link rel="stylesheet" href="./styles/notifications.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <section id="notifications"></section>
+    <div class="content">
+      <section id="notifications"></section>
+      <form method="post" class="form" id="signup">
+        <h4 class="form-title">Login</h4>
+        <img
+          src="./assets/images/undraw_sign_up_n6im.svg"
+          alt="login image"
+          class="img form-logo"
+        />
+        <div class="form-row">
+          <label class="form-label" for="email"> Email </label>
+          <input
+            class="form-input"
+            type="text"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="password"> Password </label>
+          <input
+            class="form-input"
+            type="password"
+            id="password"
+            name="password"
+            minlength="6"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-block form-btn" id="register-btn">
+          Submit
+        </button>
+        <p class="already-member">
+          Not registered yet?
+          <a href="/signup.html" class="member-btn"> Login </a>
+        </p>
+      </form>
+    </div>
+    <script type="module" src="./login/index.js"></script>
+  </body>
+</html>
