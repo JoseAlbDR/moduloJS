@@ -14,9 +14,10 @@ export const createUser = async (email, password) => {
 
   try {
     const response = await fetch(url, requestOptions);
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.message);
-    return data;
+    if (!response.ok) {
+      const data = await response.json();
+      throw new Error(data.message);
+    }
   } catch (error) {
     throw error;
   }
