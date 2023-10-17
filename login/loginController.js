@@ -14,7 +14,7 @@ const submitLogin = async (loginForm) => {
     const token = response.accessToken;
     alert('login ok');
     localStorage.setItem('accessToken', token);
-    window.location = './index.html';
+    window.location = '/';
   } catch (error) {
     alert(error.message);
   }
