@@ -1,13 +1,17 @@
+import { dispatchEvent } from '../utils/createCustomEvent.js';
 import { getTweets } from './tweetListModel.js';
 import { buildTweet, emptyTweets } from './tweetListView.js';
 
 export const tweetListController = async (tweetList) => {
   let tweets = [];
   try {
+    dispatchEvent('startLoadingTweets', null, tweetList);
     tweets = await getTweets();
   } catch (error) {
     const event = createCustomEvent('error', 'Error cargando tweets');
     tweetList.dispatchEvent(event);
+  } finally {
+    dispatchEvent('finishLoadingTweets', null, tweetList);
   }
 
   if (!tweets || tweets.length === 0) {

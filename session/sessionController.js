@@ -6,7 +6,7 @@ export const sessionController = (nav) => {
     const logoutBtn = nav.querySelector('button');
     logoutBtn.addEventListener('click', () => {
       localStorage.removeItem('accessToken');
-      window.location.reload();
+      sessionController(nav);
     });
   } else {
     nav.innerHTML = buildSession();
