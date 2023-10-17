@@ -13,6 +13,7 @@ export const signUpController = (signupForm) => {
         await createUser(email, pass);
         const event = createCustomEvent('success', 'User successfully created');
         signupForm.dispatchEvent(event);
+        window.location = './login.html';
       } else {
         if (!isEmailValid(email)) throw new Error('Invalid email format');
         if (!isPasswordValid(pass, repPass))
