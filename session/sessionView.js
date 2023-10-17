@@ -8,3 +8,9 @@ export const buildSession = () => {
   </ul>
   `;
 };
+
+export const buildLogout = () => {
+  return `
+  <button id="logoutBtn">Logout</button>
+  `;
+};
