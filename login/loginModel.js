@@ -16,10 +16,11 @@ export const loginUser = async (user) => {
 
   try {
     const response = await fetch(url, requestOptions);
+    const data = await response.json();
     if (!response.ok) {
-      const data = await response.json();
       throw new Error(data.message);
     }
+    return data;
   } catch (error) {
     if (error.message) {
       throw error.message;
