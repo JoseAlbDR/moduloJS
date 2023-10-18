@@ -1,3 +1,4 @@
+import { dispatchEvent } from '../utils/createCustomEvent.js';
 import { loginUser } from './loginModel.js';
 
 export const loginController = (loginForm) => {
@@ -10,6 +11,7 @@ export const loginController = (loginForm) => {
 const submitLogin = async (loginForm) => {
   const { email, password } = getLoginData(loginForm);
   try {
+    dispatchEvent('startLoadingLogin', null, loginForm);
     const response = await loginUser({ email, password });
     const token = response.accessToken;
     alert('login ok');
@@ -17,6 +19,8 @@ const submitLogin = async (loginForm) => {
     window.location = '/';
   } catch (error) {
     alert(error.message);
+  } finally {
+    dispatchEvent('finishLoadingLogin', null, loginForm);
   }
 };
 

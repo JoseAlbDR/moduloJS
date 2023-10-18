@@ -32,6 +32,7 @@ const transformTweets = (tweets) => {
     message: tweet.message,
     likes: tweet.likes.length,
     image: tweet.image,
+    id: tweet.id,
   }));
 };
 

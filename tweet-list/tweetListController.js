@@ -26,7 +26,6 @@ export const tweetListController = async (tweetList) => {
 const renderTweets = (tweets, tweetList) => {
   tweets.forEach((tweet) => {
     const tweetContainer = document.createElement('div');
-    tweetContainer.classList.add('tweet');
     tweetContainer.innerHTML = buildTweet(tweet);
     tweetList.appendChild(tweetContainer);
   });
